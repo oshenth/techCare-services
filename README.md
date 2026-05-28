@@ -1,8 +1,8 @@
-\# 📱 TechCare Services App
+# 📱 TechCare Services App
 
 
 
-\## 📌 Overview
+## 📌 Overview
 
 
 
@@ -10,61 +10,61 @@ TechCare Services is a mobile-oriented Progressive Web App (PWA) developed to si
 
 
 
-\---
+---
 
 
 
-\## 🚀 Features
+## 🚀 Features
 
 
 
-\* 🔐 User Registration and Login
+* 🔐 User Registration and Login
 
-\* 🛠 Repair Service Booking
+* 🛠 Repair Service Booking
 
-\* 📦 Booking Tracking System
+* 📦 Booking Tracking System
 
-\* 🧑‍💼 Admin Panel for Status Management
+* 🧑‍💼 Admin Panel for Status Management
 
-\* 🔔 Notifications for updates
+* 🔔 Notifications for updates
 
-\* 📱 Mobile-friendly UI (PWA support)
+* 📱 Mobile-friendly UI (PWA support)
 
-\* 🔓 Logout and session management
-
-
-
-\---
+* 🔓 Logout and session management
 
 
 
-\## 🛠️ Technologies Used
+---
 
 
 
-\* \*\*Frontend:\*\* HTML, CSS, JavaScript
-
-\* \*\*Backend:\*\* Flask (Python)
-
-\* \*\*Database:\*\* SQLite
-
-\* \*\*Environment:\*\* Jupyter Notebook / Anaconda
-
-\* \*\*Deployment:\*\* Local server (PWA)
+## 🛠️ Technologies Used
 
 
 
-\---
+* **Frontend:** HTML, CSS, JavaScript
+
+* **Backend:** Flask (Python)
+
+* **Database:** SQLite
+
+* **Environment:** Jupyter Notebook / Anaconda
+
+* **Deployment:** Local server (PWA)
 
 
 
-\## 📂 Project Structure
+---
+
+
+
+## 📂 Project Structure
 
 
 
 ```
 
-techcare\_app/
+techcare_app/
 
 │
 
@@ -98,7 +98,7 @@ techcare\_app/
 
 │   ├── images/
 
-│   │   └── Icon\_V2.png
+│   │   └── Icon_V2.png
 
 │   ├── manifest.json
 
@@ -108,15 +108,15 @@ techcare\_app/
 
 
 
-\---
+---
 
 
 
-\## ▶️ How to Run the Application
+## ▶️ How to Run the Application
 
 
 
-1\. Install dependencies:
+1. Install dependencies:
 
 
 
@@ -128,7 +128,7 @@ pip install flask
 
 
 
-2\. Run the application:
+2. Run the application:
 
 
 
@@ -140,7 +140,7 @@ python app.py
 
 
 
-3\. Open in browser:
+3. Open in browser:
 
 
 
@@ -152,17 +152,17 @@ http://127.0.0.1:5000
 
 
 
-\---
+---
 
 
 
-\## 📱 Run on Mobile (PWA)
+## 📱 Run on Mobile (PWA)
 
 
 
-1\. Connect phone and PC to same WiFi
+1. Connect phone and PC to same WiFi
 
-2\. Run:
+2. Run:
 
 
 
@@ -174,7 +174,7 @@ ipconfig
 
 
 
-3\. Open in mobile browser:
+3. Open in mobile browser:
 
 
 
@@ -186,15 +186,15 @@ http://<your-ip>:5000
 
 
 
-4\. Add to Home Screen
+4. Add to Home Screen
 
 
 
-\---
+---
 
 
 
-\## 🔑 Admin Credentials
+## 🔑 Admin Credentials
 
 
 
@@ -208,11 +208,11 @@ Password: admin123
 
 
 
-\---
+---
 
 
 
-\## 🧪 Testing
+## 🧪 Testing
 
 
 
@@ -220,21 +220,21 @@ The application includes:
 
 
 
-\* Functional testing
+* Functional testing
 
-\* Validation testing
+* Validation testing
 
-\* Admin and user scenario testing
+* Admin and user scenario testing
 
-\* Mobile responsiveness testing
-
-
-
-\---
+* Mobile responsiveness testing
 
 
 
-\## 📖 Documentation
+---
+
+
+
+## 📖 Documentation
 
 
 
@@ -242,41 +242,41 @@ This project includes:
 
 
 
-\* System design (UML diagrams)
+* System design (UML diagrams)
 
-\* Database design
+* Database design
 
-\* Test plan with 30 test cases
+* Test plan with 30 test cases
 
-\* User documentation
+* User documentation
 
-\* Technical documentation
-
-
-
-\---
+* Technical documentation
 
 
 
-\## 🎯 Future Improvements
+---
 
 
 
-\* Push notifications
-
-\* Cloud deployment
-
-\* Payment integration
-
-\* Offline support
+## 🎯 Future Improvements
 
 
 
-\---
+* Push notifications
+
+* Cloud deployment
+
+* Payment integration
+
+* Offline support
 
 
 
-\## 👨‍💻 Developed By
+---
+
+
+
+## 👨‍💻 Developed By
 
 
 
