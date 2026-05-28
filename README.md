@@ -169,21 +169,6 @@ Password: admin123
 ---
 
 
-## 🧪 Testing
-
-
-The application includes:
-
-
-* Functional testing
-* Validation testing
-* Admin and user scenario testing
-* Mobile responsiveness testing
-
-
----
-
-
 ## 📖 Documentation
 
 
@@ -194,7 +179,6 @@ This project includes:
 * Database design
 * Test plan with 30 test cases
 * User documentation
-* Technical documentation
 
 
 ---
