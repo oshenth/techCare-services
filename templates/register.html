@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/Icon_V2.png') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/Icon_V2.png') }}">
+
+</head>
+
+<body>
+<div id="splash">
+    <img src="{{ url_for('static', filename='images/Icon_V2.png') }}" alt="logo">
+    <h2>TechCare</h2>
+</div>
+
+<div class="main">
+    <div class="container">
+        <h2>TechCare Register</h2>
+    
+        <form id="registerForm">
+            <input type="text" id="name" placeholder="Full Name">
+            <input type="email" id="email" placeholder="Email">
+            <input type="text" id="phone" placeholder="Phone Number">
+            <input type="password" id="password" placeholder="Password">
+    
+            <button type="submit">Register</button>
+        </form>
+    
+        <p id="message"></p>
+
+        <div class="nav">
+            <a href="/login-page">Login</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("registerForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let phone = document.getElementById("phone").value;
+        let password = document.getElementById("password").value;
+
+        let message = document.getElementById("message");
+
+        // Frontend validation
+        if (!name || !email || !phone || !password) {
+            message.innerText = "All fields are required";
+            message.className = "error";
+            return;
+        }
+
+        if (password.length < 6) {
+            message.innerText = "Password must be at least 6 characters";
+            message.className = "error";
+            return;
+        }
+
+        fetch('/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                phone: phone,
+                password: password
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.message) {
+                message.innerText = data.message;
+                message.className = "success";
+        
+                // 🔥 Redirect after success
+                setTimeout(() => {
+                    window.location.href = data.redirect;
+                }, 1500);
+            } else {
+                message.innerText = data.error;
+                message.className = "error";
+            }
+        });
+    });
+</script>
+
+<script>
+window.addEventListener("load", function() {
+    setTimeout(() => {
+        let splash = document.getElementById("splash");
+        splash.style.opacity = "0";
+        splash.style.transition = "0.5s";
+
+        setTimeout(() => {
+            splash.style.display = "none";
+        }, 500);
+    }, 1500);
+});
+</script>
+
+</body>
+</html>

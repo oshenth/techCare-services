@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/Icon_V2.png') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/Icon_V2.png') }}">
+
+    <style>
+        .admin-title {
+            text-align: center;
+            color: white;
+            margin: 20px;
+        }
+
+        .admin-card {
+            background: white;
+            padding: 15px;
+            margin: 10px auto;
+            width: 320px;
+            border-radius: 12px;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+        }
+
+        select {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2 class="admin-title">Admin Panel</h2>
+
+<div id="list"></div>
+
+<div class="nav">
+    <a href="/logout">Logout</a>
+</div>
+    
+<script>
+function loadBookings() {
+    fetch('/get-bookings')
+    .then(res => res.json())
+    .then(data => {
+        let container = document.getElementById("list");
+        container.innerHTML = "";
+
+        data.forEach(b => {
+            let div = document.createElement("div");
+            div.className = "admin-card";
+
+            div.innerHTML = `
+                <p><b>Device:</b> ${b.device}</p>
+                <p><b>Issue:</b> ${b.issue}</p>
+                <p><b>Method:</b> ${b.method}</p>
+
+                <select onchange="updateStatus(${b.id}, this.value)">
+                    <option ${b.status=='Pending'?'selected':''}>Pending</option>
+                    <option ${b.status=='Repairing'?'selected':''}>Repairing</option>
+                    <option ${b.status=='Completed'?'selected':''}>Completed</option>
+                </select>
+            `;
+
+            container.appendChild(div);
+        });
+    });
+}
+
+function updateStatus(id, status) {
+    fetch('/update-status', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id, status })
+    })
+    .then(res => res.json())
+    .then(data => {
+        alert(data.message);
+        loadBookings();
+    });
+}
+
+loadBookings();
+</script>
+
+</body>
+</html>

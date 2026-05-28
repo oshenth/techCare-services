@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Track Bookings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/Icon_V2.png') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/Icon_V2.png') }}">
+
+    <style>
+        /* Page specific */
+        .track-title {
+            text-align: center;
+            color: white;
+            margin-top: 10px;
+        }
+
+        .phone-frame {
+            width: 360px;
+            max-width: 100%;
+            margin: auto;
+        }
+
+        .booking-card {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 12px;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .booking-card p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .status {
+            padding: 5px 10px;
+            border-radius: 10px;
+            display: inline-block;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .Pending {
+            background: #ffe0b2;
+            color: #e65100;
+        }
+
+        .Completed {
+            background: #c8e6c9;
+            color: #2e7d32;
+        }
+
+        .Repairing {
+            background: #bbdefb;
+            color: #0d47a1;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="nav">
+    <a href="/home">Home</a>
+    <a href="/booking-page">Book</a>
+    <a href="/logout">Logout</a>
+</div>
+
+<h2 class="track-title">Your Bookings</h2>
+
+<div class="phone-frame" id="list"></div>
+
+<script>
+fetch('/get-bookings')
+.then(res => res.json())
+.then(data => {
+
+    let container = document.getElementById("list");
+    container.innerHTML = "";
+
+    data.forEach(b => {
+
+        let div = document.createElement("div");
+        div.className = "booking-card";
+
+        //Notification based on status
+        let note = "";
+        if (b.status === "Repairing") {
+            note = "🛠 Your device is under repair";
+        } else if (b.status === "Completed") {
+            note = "✅ Your device is ready!";
+        }
+
+        div.innerHTML = `
+            <p><b>📱 Device:</b> ${b.device}</p>
+            <p><b>🛠 Issue:</b> ${b.issue}</p>
+            <p><b>🚚 Method:</b> ${b.method}</p>
+            <p><b>Status:</b> ${b.status}</p>
+            <p style="color:green;">${note}</p>
+        `;
+
+        container.appendChild(div);
+
+        //Popup notification
+        if (note) {
+            alert(note);
+        }
+    });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TechCare Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/Icon_V2.png') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/Icon_V2.png') }}">
+
+    <style>
+        .home-main {
+            min-height: calc(100vh - 70px);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* KEY CHANGE */
+            padding-top: 40px;
+        }
+        
+        .home-content {
+            width: 100%;
+            max-width: 350px;
+            text-align: center;
+        }
+        
+        .home-title {
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        /* MENU */
+        .menu {
+            display: flex;
+            flex-direction: column;
+            height:300px;
+            gap: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="main home-main">
+
+    <div class="home-content">
+
+        <h2 class="home-title">Welcome to TechCare</h2>
+
+        <div class="container fade-in">
+
+            <div class="menu">
+                <a href="/booking-page">🛠 Request a Repair</a>
+                <a href="/track">📦 Track Your Bookings</a>
+            </div>
+
+            <div class="nav">
+                <a href="/logout">Logout</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
